@@ -66,11 +66,13 @@ p1 {
     grid-column-start: 1;
     grid-row-start: 2; 
     grid-column-end: 2;
+    /* visibility: hidden;  */
 }
 
 .item6 {
     grid-column-start: 4;
     grid-row-start: 2; 
     grid-column-end: 5;
+    visibility: hidden; 
 
 }
