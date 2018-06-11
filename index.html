@@ -4,11 +4,13 @@
         <title>Pokemon</title>
         <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
 
     </head>
 
     <body>
+            <img src="assets/images/pokemonbackground.jpg" id="bg" alt="">
         <header>
             <img src="assets/images/pokemon.png" id="pokemonLogo" alt="pokemonLogo" height="130px" width="400px">
         </header>
@@ -56,28 +58,41 @@
         <!-- </div> -->
         <!-- for your chosen pokemon -->
             <div class="grid-item item5" id="chosenPokemon">
-                    <img src="assets/images/pikachu.png" alt="pikachuPhoto" height="150px" width="150px">
-                    <div class="pikachuStats stats">
-                        <p1>Pikachu</p1>
-                        <br>
-                        <p2>HP: 150</p2>
-                    </div>
                 </div>
                 
-                    <div class="grid-item item6" id="competitionPokemon">
-                            <img src="assets/images/pikachu.png" alt="pikachuPhoto" height="150px" width="150px">
-                            <div class="pikachuStats stats">
-                                <p1>Pikachu</p1>
-                                <br>
-                                <p2>HP: 150</p2>
-                            </div>
-                        </div>
-
+            <div class="grid-item item6" id="competitionPokemon">
+                    </div>
+            <div class="grid-item item7 scoreContainer">
+                <div> Your HP:</div>
+                <div>Your Attack Points: <span>0</span> </div>
+                <div> Your Health: <span>0</span> </div>
+                <br>
+                <div> Opponents HP: <span>0</span></div>
+                <div> Opponents Attack Points:<span>0</span> </div>
+                <div> Opponents Health: <span>0</span> </div>
             </div>
-
-         </div>
+                      
     </div>
 
+       
+    <audio id="pikaSound">
+            <source src="assets/images/Pikaaaa.mp3" type="audio/mpeg">
+
+        </audio>
+    <audio id="onyxSound">
+        <source src="assets/images/onyx.mp3" type="audio/mpeg">
+
+        </audio>
+
+    <audio id="magnemiteSound">
+            <source src="assets/images/magnemite.mp3" type="audio/mpeg">
+
+        </audio>
+    
+        <audio id="ivysaurSound">
+                <source src="assets/images/ivysaur.mp3" type="audio/mpeg">
+    
+            </audio>   
 
     </body>
     <script src="assets/javascript/game.js"></script>

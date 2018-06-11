@@ -4,8 +4,10 @@
     width: 150px; 
     float: left; 
     margin: 10px;  
+    background-color: lightgray;
 
- } 
+ }
+ 
 
 .stats {
     font-size: 13px; 
@@ -32,6 +34,7 @@ p1 {
     font-family: "franklin gothic medium";
     text-align: center; 
     font-size: 26px; 
+    padding: 20px; 
 }
 
 /* grid container */
@@ -66,6 +69,8 @@ p1 {
     grid-column-start: 1;
     grid-row-start: 2; 
     grid-column-end: 2;
+
+    
     /* visibility: hidden;  */
 }
 
@@ -73,6 +78,32 @@ p1 {
     grid-column-start: 4;
     grid-row-start: 2; 
     grid-column-end: 5;
-    visibility: hidden; 
+    /* visibility: hidden;  */
 
 }
+
+.item7 {
+    grid-column-start: 2;
+    grid-row-start: 2; 
+    grid-column-end: 4;
+    visibility: hidden; 
+}
+
+#bg {
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1; 
+  }
+
+  .scoreContainer {
+
+      font-size: 20px; 
+      color: white; 
+      margin-left: auto;
+      margin-right: auto;  
+      background-color: black; 
+      padding: 10px; 
+  }
