@@ -1,23 +1,66 @@
 
 var isFirstGuess = 0;
 
+var userPokemon; 
+var compPokemon; 
+
+
+var pikachu = {
+    HP: 150, 
+    AP: 25, 
+    CA: 25
+}
+
+var onyx = {
+    HP: 220, 
+    AP: 25,
+    CA: 25 
+}
+
+var magnemite = {
+    HP: 75, 
+    AP: 25,
+    CA: 25 
+}
+
+var ivysaur = {
+    HP: 200, 
+    AP: 25,
+    CA: 25 
+}
+
+$("#pikachuHP").text(pikachu.HP);
+console.log(pikachu.HP);
+console.log(pikachu.AP); 
+
+
 $("#pikachu").on("click", function() {
 
-    if (isFirstGuess === 0) {
+    
 
+    if (isFirstGuess === 0) {
+        
+        userPokemon = "pikachu";
         $(".item1").removeClass(".item1").addClass("item5");
         isFirstGuess++; 
         $("#lede").html("Now Choose Your Enemy!");
-        $("#pikachuSound")[0].play();
+        // $("#pikachuSound")[0].play();
+        $("#user-HP").html(userPokemon.HP);
+        $("#user-AP").html(userPokemon.AP);
+        $("#user-CA").html(userPokemon.CA);
 
 
 
     } else {
+
+        compPokemon = "pikachu";
         $(".item1").removeClass("item1").addClass("item6");
         $("#lede").html("FIGHT");
         $(".item7").css("visibility", "visible");
         $("#pikachuSound")[0].play();
-
+        $("#comp-HP").text(compPokemon.HP);
+        $("#comp-AP").text(compPokemon.AP);
+        $("#comp-CA").text(compPokemon.CA);
 
         } 
     
@@ -31,6 +74,7 @@ $("#onyx").on("click", function() {
     isFirstGuess++; 
     $("#lede").html("Now Choose Your Enemy!");
     $("#onyxSound")[0].play();
+    $("")
     
 
 
