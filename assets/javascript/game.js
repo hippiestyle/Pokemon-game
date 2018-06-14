@@ -3,92 +3,82 @@ var isFirstGuess = 0;
 var userActiveIndex; 
 var enemyActiveIndex = 0; 
 
+
+var userPokemonIndex = NaN; 
+var enemyPokemonIndex = NaN; 
+
 var pokemonList = [
+    
     {
         // 0 
        name: "pikachu",
        HP: 150,
-       AP: 55,
-       CA: 25
+       AP: 8,
+       CA: 25,
+       compounder: 8 
     },
 
     {
         // 1
        name: "onyx",
        HP: 250,
-       AP: 25,
-       CA: 25
+       AP: 10,
+       CA: 25,
+       compounder: 10 
     },
     
     {
         // 2
        name: "magnemite",
        HP: 100,
-       AP: 25,
-       CA: 25
+       AP: 5,
+       CA: 25,
+       compounder: 5
     },
     
     {
         // 3
        name: "ivysaur",
        HP: 300,
-       AP: 25,
-       CA: 25
-    },
-
-    {
-        // 4 
-       name: "user",
-       HP: 0,
-       AP: 0,
-       CA: 0
-    },
-
-    {
-        // 5 
-       name: "enemy",
-       HP: 0,
-       AP: 0,
-       CA: 0
-
+       AP: 15,
+       CA: 25,
+       compounder: 15 
     }
 ];
 
+function displayUserStats() {
+$("#user-HP").html(pokemonList[userPokemonIndex].HP);
+ $("#user-AP").html(pokemonList[userPokemonIndex].AP);
+ $("#user-CA").html(pokemonList[userPokemonIndex].CA);
+}
+
+function displayEnemyStats () {
+    $("#comp-HP").html(pokemonList[enemyPokemonIndex].HP);
+    $("#comp-AP").html(pokemonList[enemyPokemonIndex].AP);
+    $("#comp-CA").html(pokemonList[enemyPokemonIndex].CA);
+}
+
+
 $("#pikachu").on("click", function() {
 
-    if (isFirstGuess === 0) {
+    if (isNaN(userPokemonIndex) ) {
         
-        userPokemon = "pikachu";
+        userPokemonIndex = 0;
         $(".item1").removeClass(".item1").addClass("item5");
         isFirstGuess++; 
         $("#lede").html("Now Choose Your Enemy!");
         // $("#pikachuSound")[0].play();
-        $("#user-HP").html(pokemonList[0].HP);
-        $("#user-AP").html(pokemonList[0].AP);
-        $("#user-CA").html(pokemonList[0].CA);
-        pokemonList[4].HP = pokemonList[0].HP;
-        pokemonList[4].HP = pokemonList[0].AP;
-        pokemonList[4].HP = pokemonList[0].CA;
-
-        userActiveIndex = 0; 
-
-
+        displayUserStats(); 
+   
     } else {
 
-        compPokemon = "pikachu";
+        enemyPokemonIndex = 0;
         $(".item1").removeClass("item1").addClass("item6");
         $("#lede").html("FIGHT");
         $(".item7").css("visibility", "visible");
         // $("#pikachuSound")[0].play();
-        isFirstGuess++;
-      
-        $("#comp-HP").html(pokemonList[0].HP);
-        $("#comp-AP").html(pokemonList[0].AP);
-        $("#comp-CA").html(pokemonList[0].CA);
-        pokemonList[5].HP = pokemonList[0].HP;
-        pokemonList[5].HP = pokemonList[0].AP;
-        pokemonList[5].HP = pokemonList[0].CA;
-        enemyActiveIndex = 0;  
+         displayEnemyStats(); 
+
 
         } 
     
@@ -96,79 +86,48 @@ $("#pikachu").on("click", function() {
 
 $("#onyx").on("click", function() {
 
-    if (isFirstGuess === 0) {
+    if (isNaN(userPokemonIndex)) {
 
-    userPokemon = "onyx";
+    userPokemonIndex = 1;
     $(".item2").removeClass("item2").addClass("item5");
     isFirstGuess++; 
     $("#lede").html("Now Choose Your Enemy!");
     $("#onyxSound")[0].play();
-
-    $("#user-HP").html(pokemonList[1].HP);
-    $("#user-AP").html(pokemonList[1].AP);
-    $("#user-CA").html(pokemonList[1].CA);
-    pokemonList[4].HP = pokemonList[1].HP;
-    pokemonList[4].HP = pokemonList[1].AP;
-    pokemonList[4].HP = pokemonList[1].CA;
-
-    userActiveIndex = 1; 
-
+    displayUserStats(); 
 
 } else  {
-
-    userPokemon = "onyx";
+    
+    enemyPokemonIndex = 1;
     $(".item2").removeClass("item2").addClass("item6");
     $(".item7").css("visibility", "visible");
     $("#lede").html("FIGHT!");  
     isFirstGuess++; 
-
-    $("#comp-HP").html(pokemonList[1].HP);
-    $("#comp-AP").html(pokemonList[1].AP);
-    $("#comp-CA").html(pokemonList[1].CA);
-    pokemonList[5].HP = pokemonList[1].HP;
-    pokemonList[5].HP = pokemonList[1].AP;
-    pokemonList[5].HP = pokemonList[1].CA;
-    enemyActiveIndex = 1; 
-
+    displayEnemyStats();
 }
 
 });
 
 $("#magnemite").on("click", function() {
 
-    if (isFirstGuess === 0) {
+    if (isNaN(userPokemonIndex)) {
 
-    userPokemon = "magnemite";        
-   $(".item3").removeClass("item3").addClass("item5");
+    userPokemonIndex = 2;
+    $(".item3").removeClass("item3").addClass("item5");
     $("#lede").html("Now Choose Your Enemy!");
     isFirstGuess++; 
     $("#magnemiteSound")[0].play();
-
-    $("#user-HP").html(pokemonList[2].HP);
-    $("#user-AP").html(pokemonList[2].AP);
-    $("#user-CA").html(pokemonList[2].CA);
-    pokemonList[4].HP = pokemonList[2].HP;
-    pokemonList[4].HP = pokemonList[2].AP;
-    pokemonList[4].HP = pokemonList[2].CA;
-    userActiveIndex = 2; 
-    
+    displayUserStats(); 
 
     } else {
 
-        userPokemon = "magnemite";
+        enemyPokemonIndex = 2;
         $(".item3").removeClass("item3").addClass("item6");
         $(".item7").css("visibility", "visible");
         $("#lede").html("FIGHT!");
         $("#magnemiteSound")[0].play();
         isFirstGuess++; 
-
-        $("#comp-HP").html(pokemonList[2].HP);
-        $("#comp-AP").html(pokemonList[2].AP);
-        $("#comp-CA").html(pokemonList[2].CA);
-        pokemonList[5].HP = pokemonList[2].HP;
-        pokemonList[5].HP = pokemonList[2].AP;
-        pokemonList[5].HP = pokemonList[2].CA;
-        enemyActiveIndex = 2;
+        displayEnemyStats(); 
+        
         }
 
 });
@@ -177,46 +136,26 @@ $("#magnemite").on("click", function() {
 $("#ivysaur").on("click", function() {
 
 
-    if (isFirstGuess === 0) {
+    if (isNaN(userPokemonIndex)) {
 
-    userPokemon = "ivysaur";
+    userPokemonIndex = 3;
     $(".item4").removeClass("item4").addClass("item5");
     $("#lede").html("Now Choose Your Enemy!");
     isFirstGuess++; 
     $("#ivysaurSound")[0].play();
-    userPokemonHP = ivysaurHP;
-    userPokemonAP = ivysaurAP;
-    userPokemonCA = ivysaurCA;
-    $("#user-HP").html(pokemonList[3].HP);
-    $("#user-AP").html(pokemonList[3].AP);
-    $("#user-CA").html(pokemonList[3].CA);
-    pokemonList[4].HP = pokemonList[3].HP;
-    pokemonList[4].HP = pokemonList[3].AP;
-    pokemonList[4].HP = pokemonList[3].CA;
-    userActiveIndex = 3; 
+    displayUserStats();
 
 
     } else {
 
 
-        userPokemon = "ivysaur";
-
+        enemyPokemonIndex = 3;         
         $(".item4").removeClass("item4").addClass("item6");
         $("#lede").html("FIGHT!");
         $(".item7").css("visibility", "visible");
         isFirstGuess++; 
         $("#ivysaurSound")[0].play();
-        compPokemonHP = ivysaurHP;
-        compPokemonAP = ivysaurAP;
-        compPokemonCA = ivysaurCA;
-        $("#comp-HP").html(pokemonList[3].HP);
-        $("#comp-AP").html(pokemonList[3].AP);
-        $("#comp-CA").html(pokemonList[3].CA);
-        pokemonList[5].HP = pokemonList[3].HP;
-        pokemonList[5].HP = pokemonList[3].AP;
-        pokemonList[5].HP = pokemonList[3].CA;
-
-        enemyActiveIndex = 3; 
+        displayEnemyStats(); 
 
     }
 
@@ -225,17 +164,50 @@ $("#ivysaur").on("click", function() {
 
 
     $("#attackButton").on("click", function() {
-     
-       pokemonList[4].HP -= pokemonList[5].AP;
-        $("#user-HP").html(pokemonList[4].HP);
+    //    if (pokemonList[enemyPokemonIndex].HP <= 0) {
 
+    //    }
+
+        //USER 
+        //attack on user from enemy
+        pokemonList[userPokemonIndex].HP -= pokemonList[enemyPokemonIndex].CA;
+        console.log("pokemon HP:" + pokemonList[userPokemonIndex].HP); 
+
+        //compound user attack points
+        pokemonList[userPokemonIndex].AP += pokemonList[userPokemonIndex].compounder 
+        console.log("pokemon increased AP: " + pokemonList[userPokemonIndex].AP);
+
+        //ENEMY
+        //attack on enemy from user 
+        pokemonList[enemyPokemonIndex].HP -= pokemonList[userPokemonIndex].AP;
+        console.log("comp pokemon HP hit:" + pokemonList[enemyPokemonIndex].HP);
+
+        pokemonList[userPokemonIndex].AP += pokemonList[userPokemonIndex].AP;
+        console.log("comp pokemon AP hit:" + pokemonList[enemyPokemonIndex].HP);
+
+
+    //    console.log(pokemonList[userPokemonIndex].HP);
+
+
+        
+        // 
+
+    // LOOGGGGGINNNNNGGG
+
+        $("#user-HP").html(pokemonList[userPokemonIndex].HP);
+        console.log("user HP: " + pokemonList[userPokemonIndex].HP);
+
+        $("#comp-HP").html(pokemonList[enemyPokemonIndex].HP);
+        console.log("comp HP: " + pokemonList[enemyPokemonIndex].HP);
+        $("#user-AP").html(pokemonList[userPokemonIndex.AP]);
+        console.log("user AP: " + pokemonList[userPokemonIndex].compounder);
 
     });
 
 
  
 
-
+// 
 
 
 
