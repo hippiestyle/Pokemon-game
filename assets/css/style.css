@@ -124,3 +124,7 @@ p1 {
   #user-HP {
       padding-top: 20px; 
   }
+
+  .dead {
+      visibility: hidden; 
+  }

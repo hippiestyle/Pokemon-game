@@ -164,9 +164,16 @@ $("#ivysaur").on("click", function() {
 
 
     $("#attackButton").on("click", function() {
-    //    if (pokemonList[enemyPokemonIndex].HP <= 0) {
+// if enemy is dead - 
+       if (pokemonList[enemyPokemonIndex].HP < 1) {
+           // remove class 
+        $("#" + pokemonList[enemyPokemonIndex].name).addClass("dead");   
 
-    //    }
+
+    } else if (pokemonList[userPokemonIndex].HP < 1) {
+        $("#lede").html("You Lose!");
+    }
+       
 
         //USER 
         //attack on user from enemy
@@ -184,13 +191,9 @@ $("#ivysaur").on("click", function() {
 
         pokemonList[userPokemonIndex].AP += pokemonList[userPokemonIndex].AP;
         console.log("comp pokemon AP hit:" + pokemonList[enemyPokemonIndex].HP);
-
+       
 
     //    console.log(pokemonList[userPokemonIndex].HP);
-
-
-        
-        // 
 
     // LOOGGGGGINNNNNGGG
 
@@ -201,15 +204,14 @@ $("#ivysaur").on("click", function() {
         console.log("comp HP: " + pokemonList[enemyPokemonIndex].HP);
         $("#user-AP").html(pokemonList[userPokemonIndex.AP]);
         console.log("user AP: " + pokemonList[userPokemonIndex].compounder);
+     
+        if (pokemonList[enemyPokemonIndex].HP < 1) {
+            $("#" + pokemonList[enemyPokemonIndex].name).addClass("dead");   
+        }
+    
 
     });
 
 
  
-
-// 
-
-
-
-
 
