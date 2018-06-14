@@ -13,8 +13,8 @@ var pokemonList = [
         // 0 
        name: "pikachu",
        HP: 150,
-       AP: 8,
-       CA: 25,
+       AP: 5,
+       CA: 5,
        compounder: 8 
     },
 
@@ -22,7 +22,7 @@ var pokemonList = [
         // 1
        name: "onyx",
        HP: 250,
-       AP: 10,
+       AP: 5,
        CA: 25,
        compounder: 10 
     },
@@ -31,8 +31,8 @@ var pokemonList = [
         // 2
        name: "magnemite",
        HP: 100,
-       AP: 5,
-       CA: 25,
+       AP: 1,
+       CA: 10,
        compounder: 5
     },
     
@@ -40,8 +40,8 @@ var pokemonList = [
         // 3
        name: "ivysaur",
        HP: 300,
-       AP: 15,
-       CA: 25,
+       AP: 50,
+       CA: 20,
        compounder: 15 
     }
 ];
@@ -67,7 +67,7 @@ $("#pikachu").on("click", function() {
         $(".item1").removeClass(".item1").addClass("item5");
         isFirstGuess++; 
         $("#lede").html("Now Choose Your Enemy!");
-        // $("#pikachuSound")[0].play();
+        $("#pikaSound")[0].play();
         displayUserStats(); 
    
     } else {
@@ -76,7 +76,8 @@ $("#pikachu").on("click", function() {
         $(".item1").removeClass("item1").addClass("item6");
         $("#lede").html("FIGHT");
         $(".item7").css("visibility", "visible");
-        // $("#pikachuSound")[0].play();
+        $("#pikaSound")[0].play();
+
          displayEnemyStats(); 
 
 
@@ -101,6 +102,7 @@ $("#onyx").on("click", function() {
     $(".item2").removeClass("item2").addClass("item6");
     $(".item7").css("visibility", "visible");
     $("#lede").html("FIGHT!");  
+    $("#onyxSound")[0].play();
     isFirstGuess++; 
     displayEnemyStats();
 }
@@ -168,6 +170,8 @@ $("#ivysaur").on("click", function() {
        if (pokemonList[enemyPokemonIndex].HP < 1) {
            // remove class 
         $("#" + pokemonList[enemyPokemonIndex].name).addClass("dead");   
+        $("#comp-HP").html(0); 
+        
 
 
     } else if (pokemonList[userPokemonIndex].HP < 1) {
